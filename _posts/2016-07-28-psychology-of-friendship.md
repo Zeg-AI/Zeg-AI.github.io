@@ -1,4 +1,4 @@
----
+<!--
 title: Psychology of friendship
 date: 2016-07-28
 description: How are our brains wired for friendship?
@@ -34,3 +34,4 @@ According to Berndt, children prize friendships that are high in pro-social beha
 Numerous studies with adults suggest that friendships and other supportive relationships do enhance self-esteem. Other potential benefits of friendship include the opportunity to learn about empathy and problem solving. Coaching from parents can be useful in helping children to make friends. Eileen Kennedy-Moore describes three key ingredients of children's friendship formation: (1) openness, (2) similarity, and (3) shared fun. Parents can also help children understand social guidelines they haven't learned on their own.
 
 Drawing from research by Robert Selman and others, Kennedy-Moore outlines developmental stages in children's friendship, reflecting an increasing capacity to understand others' perspectives: "I Want It My Way", "What's In It For Me?", "By the Rules", "Caring and Sharing", and "Friends Through Thick and Thin."
+--!>
