@@ -3,13 +3,9 @@ left_links:
     link: /blog/
   - name: Contact
     link: /contact/
-right_links:
-  - name:
-    link: https://facebook.com/
-    new_window: true
-    social_icon: Facebook
+<!-- right_links:
   - name:
     link: https://twitter.com/
     social_icon: Twitter
-    new_window: true
+    new_window: true --!>
  
