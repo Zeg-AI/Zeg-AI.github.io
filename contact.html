@@ -39,7 +39,7 @@ image: https://source.unsplash.com/WNAO036c6FM/2000x1322?a=.png
 		<div class="contact-details">
 			<h3>Address</h3>
 			
-			<address><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.061862182332!2d-0.18613268422916346!3d51.53042517963895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761aa6ba1fdc31%3A0x923318292dd5739b!2sMaida+Vale%2C+London+W9%2C+UK!5e0!3m2!1sen!2s!4v1501164902457" width="700" height="400" frameborder="0" style="border:0" allowfullscreen></iframe></address>
+			<address><a target="_blank" href="https://www.google.com/maps/place/{{ page.map.address | url_encode }}">{{ page.map.address | replace: ", ", ", <br>" }}</a></address>
 
 			<h3>Email</h3>
 			<p class="editable"><a href="mailto:contact@zeg.ai">contact@zeg.ai</a></p>
@@ -47,9 +47,26 @@ image: https://source.unsplash.com/WNAO036c6FM/2000x1322?a=.png
 	</div>
 </section>
 
-<div class="map" id="map"></div>
+<div class="map" id="map">
+	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.061862182332!2d-0.18613268422916346!3d51.53042517963895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761aa6ba1fdc31%3A0x923318292dd5739b!2sMaida+Vale%2C+London+W9%2C+UK!5e0!3m2!1sen!2s!4v1501172544601" width="800" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
+</div>
 
-<script>
+<style>
+    .map {
+        position: relative;
+        padding-bottom: 20%; // This is the aspect ratio
+        height: 0;
+        overflow: hidden;
+    }
+    .map iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100% !important;
+        /*height: 100% !important;*/
+    }
+</style>
+<!-- <script>
 	window.mapData = {{ page.map | jsonify }};
 
 	function initMap() {
@@ -79,3 +96,4 @@ image: https://source.unsplash.com/WNAO036c6FM/2000x1322?a=.png
 	}
 </script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ site.google_maps_javascript_api_key }}&amp;callback=initMap"></script>
+ -->
