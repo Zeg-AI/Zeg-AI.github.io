@@ -56,7 +56,7 @@ p, address, ul {
   font-family: 'Lato', sans-serif; }
 
 .hero {
-  color: #ffffff;
+  color: #191919;
   text-align: center;
   height: 100vh;
   min-height: 550px;
@@ -73,7 +73,7 @@ p, address, ul {
     right: 0;
     height: 300px; }
   .hero p {
-    color: #fff; }
+    color: #191919; }
   .hero .inner-hero {
     display: flex;
     align-items: center;
@@ -82,7 +82,6 @@ p, address, ul {
     width: 600px;
     text-align: left; }
     .hero .hero-text-container h1, .hero .hero-text-container h2, .hero .hero-text-container p, .hero .hero-text-container .button {
-      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8); }
   .hero .hero-text-right {
     position: absolute;
     right: 0; }
