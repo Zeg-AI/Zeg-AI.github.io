@@ -3,3 +3,5 @@
   new_window: true
 - name: Contact
   link: /contact/
+- name: Demo
+  link: /demo/  

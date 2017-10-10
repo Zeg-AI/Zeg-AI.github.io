@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="generator" content="Jekyll v3.3.1">
+
+		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300|Rubik:300">
+		<link rel="stylesheet" href="/css/screen.css">
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+		<link rel="icon" type="image/png" href="/touch-icon.png" sizes="192x192">
+		<link rel="icon" type="image/png" href="/images/favicon.png">
+
+		<!-- Begin Jekyll SEO tag v2.1.0 -->
+<title>Demo - Zeg.AI</title>
+<meta property="og:title" content="Demo" />
+<meta name="description" content="Demo for converting 2D image to 3D object" />
+<meta property="og:description" content="Demo for converting 2D image to 3D object" />
+<link rel="canonical" href="http://localhost:4000/demo/" />
+<meta property="og:url" content="http://localhost:4000/demo/" />
+<meta property="og:site_name" content="Zeg.AI" />
+<script type="application/ld+json">
+{"@context": "http://schema.org",
+"@type": "WebPage",
+"headline": "Demo",
+"description": "Demo for converting 2D image to 3D object",
+"publisher": {"@type": "Organization",
+"logo": {"@type": "ImageObject",
+"url": "http://localhost:4000/siteicon.png"}},
+"url": "http://localhost:4000/demo/"}</script>
+<!-- End Jekyll SEO tag -->
+
+		<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Zeg.AI" />
+
+		
+	</head>
+
+	<body>
+		<header id="mainHeader">
+			<div class="container">
+				<div class="company-name">
+					<a href="/">
+						<span class="dark-logo"><img width="104" height="38" src="/images/logo/zeg-logo.png" alt="Zeg ai logo"></span>
+						<span class="light-logo"><img width="104" height="38" src="/images/logo/web-logo.png" alt="zeg -ai logo"></span>
+					</a>
+				</div>
+				<nav>
+	<a class="nav-toggle" id="open-nav" href="#">&#9776;</a>
+	
+		
+		
+
+		
+		<a href="https://medium.com/zeg-ai" class="" target="_blank">Blog</a>
+	
+		
+		
+
+		
+		<a href="/contact/" class="" >Contact</a>
+	
+		
+		
+
+		
+		<a href="/demo/" class=" active" >Demo</a>
+	
+</nav>
+
+				<p class="editor-link"><a style="display:inline;" href="cloudcannon:collections/_data/navigation.yml" class="btn"><strong>&#9998;</strong> Edit navigation</a></p>
+			</div>
+		</header>
+
+		<script src="/js/three.js"></script>
+<script src="/js/Detector.js"></script>
+<script src="/js/OrbitControls.js"></script>
+<script src="/js/OBJLoader.js"></script>
+
+
+<div class="empty"></div>
+<div class="main-content">
+  <div class="left-section">
+  </div>
+  <div class="right-section">
+  </div>
+</div>
+<script>
+
+    if (!Detector.webgl) {
+        Detector.addGetWebGLMessage();
+    }
+
+    var container;
+
+    var camera, controls, scene, renderer , objLoader;
+    var lighting, ambient, keyLight, fillLight, backLight;
+
+    init();
+    animate();
+
+    function init() {
+
+        container = document.querySelector(".right-section");
+
+        /* Camera */
+        var width = container.offsetWidth;
+        var height = container.offsetHeight;
+        camera = new THREE.PerspectiveCamera(45, width / height, 1, 1000);
+        camera.position.z = 3;
+
+        /* Scene */
+        scene = new THREE.Scene();
+
+        // var light = new THREE.PointLight(0xffffff);
+        // light.position.set(-100,200,100);
+        // scene.add(light);
+
+        // var light = new THREE.AmbientLight( 0x404040 ); // soft white light
+        var light = new THREE.HemisphereLight( 0xffffff, 0x080820, 0.5 );
+        scene.add( light );
+        // lighting = false;
+
+        // ambient = new THREE.AmbientLight(0xffffff, 1.0);
+        // scene.add(ambient);
+
+        // keyLight = new THREE.DirectionalLight(new THREE.Color('hsl(30, 100%, 75%)'), 1.0);
+        // keyLight.position.set(-100, 0, 100);
+
+        // fillLight = new THREE.DirectionalLight(new THREE.Color('hsl(240, 100%, 75%)'), 0.75);
+        // fillLight.position.set(100, 0, 100);
+
+        // backLight = new THREE.DirectionalLight(0xffffff, 1.0);
+        // backLight.position.set(100, 0, -100).normalize();
+
+        /* Model */
+        objLoader = new THREE.OBJLoader();
+        objLoader.setPath('/assets/');
+        objLoader.load('see0.obj', function (object) {
+            scene.add(object);
+        });
+
+        /* Renderer */
+
+        renderer = new THREE.WebGLRenderer();
+        // renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.setSize(width,height);
+        renderer.setClearColor(new THREE.Color("hsl(0, 0%, 10%)"));
+        // renderer.setClearColorHex(0xffffff, 0.5);
+
+        container.appendChild(renderer.domElement);
+
+        /* Controls */
+
+        controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.25;
+        controls.enableZoom = false;
+
+        /* Events */
+
+        window.addEventListener('resize', onWindowResize, false);
+        window.addEventListener('keydown', onKeyboardEvent, false);
+
+    }
+
+    function onWindowResize() {
+
+      container = document.querySelector(".right-section");
+      var width = container.offsetWidth;
+      var height = container.offsetHeight;
+        windowHalfX = width / 2;
+        windowHalfY = height / 2;
+
+        camera.aspect = width / height;
+        camera.updateProjectionMatrix();
+
+        renderer.setSize(width,height);
+
+    }
+
+    function onKeyboardEvent(e) {
+
+        if (e.code === 'KeyL') {
+
+            lighting = !lighting;
+
+            if (lighting) {
+
+                ambient.intensity = 0.25;
+                scene.add(keyLight);
+                scene.add(fillLight);
+                scene.add(backLight);
+
+            } else {
+
+                ambient.intensity = 1.0;
+                scene.remove(keyLight);
+                scene.remove(fillLight);
+                scene.remove(backLight);
+
+            }
+
+        }
+
+    }
+
+    function animate() {
+
+        requestAnimationFrame(animate);
+
+        controls.update();
+
+        render();
+
+    }
+
+    function render() {
+
+        renderer.render(scene, camera);
+
+    }
+
+    function image(index){
+      return "<img class='gallery' src = '/images/op"+ index +".png' height='200' width='130' onclick = selectObj("+index+") />"
+    }
+
+
+    var content = "";
+    var a = 0;
+    var rowBegin = "<div class='first-sec'>";
+    var rowEnd = "</div>";
+    for(let j=1;j<=5;j++){
+      content += rowBegin;
+      for(let i=1;i<=4;i++){
+        content += image(a);
+        a = a+1;
+      }
+      content +=rowEnd;
+    }
+    gallery = document.querySelector(".left-section");
+    gallery.innerHTML = content;
+
+    function selectObj(index){
+      while(scene.children.length > 0){
+        scene.remove(scene.children[0]);
+      }
+
+      var light = new THREE.HemisphereLight( 0xffffff, 0x080820, 0.5 );
+      scene.add( light );
+
+      objLoader.load('see'+index+'.obj', function (object) {
+
+          scene.add(object);
+
+      });
+
+    }
+</script>
+
+
+		<footer>
+			<div class="container">
+				<p class="editor-link"><a href="cloudcannon:collections/_data/footer.yml" class="btn"><strong>&#9998;</strong> Edit footer</a></p>
+				<ul class="footer-left-links">
+					
+						<li>
+							<a target="_blank" href="https://medium.com/zeg-ai/" >
+								
+								Blog
+							</a>
+						</li>
+					
+						<li>
+							<a  href="/contact/" >
+								
+								Contact
+							</a>
+						</li>
+					
+						<li>
+							<a  href="/demo/" >
+								
+								Demo
+							</a>
+						</li>
+					
+				</ul>
+				<ul class="footer-right-links">
+					
+				</ul>
+			</div>
+		</footer>
+
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+		<script src="/js/main.js"></script>
+	</body>
+</html>

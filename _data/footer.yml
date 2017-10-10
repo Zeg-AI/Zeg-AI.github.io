@@ -4,9 +4,10 @@ left_links:
     new_window: true
   - name: Contact
     link: /contact/
+  - name: Demo
+    link: /demo/
 <!-- right_links:
   - name:
     link: https://twitter.com/
     social_icon: Twitter
     new_window: true --!>
- 

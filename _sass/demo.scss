@@ -1,0 +1,32 @@
+// body{
+//   background: rgb(0,0,0);
+// }
+.empty{
+  height: 70px;
+}
+.main-content{
+  // padding: 10px;
+  border-top: 1px solid white;
+  // padding-top: 60px;
+  width: 100%;
+  height: auto;
+  .left-section{
+    display: inline-block;
+    width: 34%;
+    height: auto;
+    background-color: white;
+    .first-sec{
+      img{
+        height: 24%;
+        width: 24%;
+        padding: 2px;
+      }
+      // padding: 2px;
+    }
+  }
+  .right-section{
+    width: 66%;
+    float: right;
+    height: 560px
+  }
+}

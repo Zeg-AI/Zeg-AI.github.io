@@ -56,10 +56,10 @@ p, address, ul {
   font-family: 'Lato', sans-serif; }
 
 .hero {
-  color: #191919;
+  color: #ffffff;
   text-align: center;
-  height: 20vh;
-  min-height: 500px;
+  height: 100vh;
+  min-height: 550px;
   background-color: #333;
   background-repeat: no-repeat;
   background-size: cover;
@@ -73,7 +73,7 @@ p, address, ul {
     right: 0;
     height: 300px; }
   .hero p {
-    color: #191919; }
+    color: #fff; }
   .hero .inner-hero {
     display: flex;
     align-items: center;
@@ -82,6 +82,7 @@ p, address, ul {
     width: 600px;
     text-align: left; }
     .hero .hero-text-container h1, .hero .hero-text-container h2, .hero .hero-text-container p, .hero .hero-text-container .button {
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8); }
   .hero .hero-text-right {
     position: absolute;
     right: 0; }
@@ -504,7 +505,7 @@ input[type=text]:focus, input[type=email]:focus, input[type=password]:focus, tex
 
 nav {
   text-transform: uppercase;
-  font-size: 0.9em;
+  font-size: .8em;
   width: 100%;
   position: relative;
   top: -7px;
@@ -603,3 +604,24 @@ footer {
       float: none;
       padding: 16px 0;
       margin: 0; } }
+
+.empty {
+  height: 70px; }
+
+.main-content {
+  border-top: 1px solid white;
+  width: 100%;
+  height: auto; }
+  .main-content .left-section {
+    display: inline-block;
+    width: 34%;
+    height: auto;
+    background-color: white; }
+    .main-content .left-section .first-sec img {
+      height: 24%;
+      width: 24%;
+      padding: 2px; }
+  .main-content .right-section {
+    width: 66%;
+    float: right;
+    height: 560px; }
