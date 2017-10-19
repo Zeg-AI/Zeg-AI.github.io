@@ -9,11 +9,57 @@ description: Demo for converting 2D image to 3D object
 
 
 <div class="empty"></div>
-<div class="main-content">
-  <div class="left-section">
-  </div>
-  <div class="right-section">
-  </div>
+<!-- <div class="main-content"> -->
+<!-- <div class="container flex"> -->
+  <!-- <div class="left-section"> -->
+  <!-- </div> -->
+  <!-- <div class="right-section"> -->
+  <!-- </div> -->
+  <!-- <div class = "left-section"> -->
+    <!-- <div class = "first-sec" height= "100px"> -->
+      <!-- <input type= "file" accept = "image/*" /> -->
+    <!-- </div> -->
+  <!-- </div> -->
+<!-- </div> -->
+<!-- <section class = "info">
+
+</section> -->
+
+<div class = "content">
+  <section class = "info">
+    <div class = "container flex">
+      <div class="main-content">
+      <!-- <div class="container flex"> -->
+        <div class="left-section">
+        </div>
+        <div class="right-section">
+        </div>
+        <div class = "left-section">
+          <div class = "first-sec">
+            <!-- <div>
+              <input type= "file" accept = "image/*" />
+            </div> -->
+            <button id="myBtn" class="uploadBtn">Try Your Own Image or Video</button>
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+
+              <!-- Modal content -->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <span class="close">&times;</span>
+                  <h4>Paste Url or Choose from Computer</h4>
+                </div>
+                <div class="modal-body">
+                  <input type = "text" placeholder = "Paste Url" />
+                  <input type= "file" accept = "image/*" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </div>
 <script>
 
@@ -101,8 +147,8 @@ description: Demo for converting 2D image to 3D object
       container = document.querySelector(".right-section");
       var width = container.offsetWidth;
       var height = container.offsetHeight;
-        windowHalfX = width / 2;
-        windowHalfY = height / 2;
+        var windowHalfX = width / 2;
+        var windowHalfY = height / 2;
 
         camera.aspect = width / height;
         camera.updateProjectionMatrix();
@@ -162,7 +208,7 @@ description: Demo for converting 2D image to 3D object
     var a = 0;
     var rowBegin = "<div class='first-sec'>";
     var rowEnd = "</div>";
-    for(let j=1;j<=5;j++){
+    for(let j=1;j<=6;j++){
       content += rowBegin;
       for(let i=1;i<=4;i++){
         content += image(a);
@@ -188,4 +234,31 @@ description: Demo for converting 2D image to 3D object
       });
 
     }
+</script>
+<script>
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
 </script>
