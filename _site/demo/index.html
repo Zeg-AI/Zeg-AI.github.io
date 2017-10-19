@@ -133,7 +133,7 @@
 
     var container;
 
-    var camera, controls, scene, renderer , objLoader;
+    var camera, controls, scene, renderer , objLoader, light;
     var lighting, ambient, keyLight, fillLight, backLight;
 
     init();
@@ -159,7 +159,7 @@
 
         // var light = new THREE.AmbientLight( 0x404040 ); // soft white light
         // var light = new THREE.HemisphereLight( 0xffffff, 0x080820, 0.5 );
-        var light = new THREE.HemisphereLight( 0xffffff, 0x080820, 0.5 );
+        light = new THREE.HemisphereLight( 0xffffff, 0x080820, 0.5 );
         scene.add( light );
 
         // lighting = false;
@@ -288,7 +288,7 @@
         scene.remove(scene.children[0]);
       }
 
-      var light = new THREE.HemisphereLight( 0xffffff, 0x080820, 0.5 );
+      // var light = new THREE.HemisphereLight( 0xffffff, 0x080820, 0.5 );
       scene.add( light );
 
       objLoader.load('see'+index+'.obj', function (object) {
