@@ -58,7 +58,7 @@ p, address, ul {
 .hero {
   color: #ffffff;
   text-align: center;
-  height: 100vh;
+  height: 70vh;
   min-height: 550px;
   background-color: #333;
   background-repeat: no-repeat;
@@ -66,7 +66,6 @@ p, address, ul {
   background-position: center center; }
   .hero:before {
     content: "";
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.65) 0, transparent 100%);
     position: absolute;
     top: 0;
     left: 0;
@@ -79,7 +78,7 @@ p, address, ul {
     align-items: center;
     height: 100%; }
   .hero .hero-text-container {
-    width: 600px;
+    width: 800px;
     text-align: left; }
     .hero .hero-text-container h1, .hero .hero-text-container h2, .hero .hero-text-container p, .hero .hero-text-container .button {
       text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8); }
@@ -117,7 +116,7 @@ p, address, ul {
   padding: 0 20px; }
 
 .text-container {
-  max-width: 750px; }
+  max-width: 1000px; }
 
 .container {
   max-width: 1140px; }

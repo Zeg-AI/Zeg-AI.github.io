@@ -1,6 +1,3 @@
-- name: Blog
-  link: https://medium.com/zeg-ai
-  new_window: true
 - name: Contact
   link: /contact/
 # - name: Demo
